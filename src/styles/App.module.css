@@ -1,0 +1,31 @@
+:root{
+    --cellSize: 15px;
+}
+.board{
+    display: flex;
+    flex-direction: column;
+}
+.cellRow {
+    display: flex;
+}
+
+.cell {
+    width: var(--cellSize);
+    height: var(--cellSize);
+}
+
+.blueCell {
+    /*font-size: 10px;*/
+    color: red;
+    background: blue;
+}
+
+.redCell {
+    color: red;
+    background: red;
+}
+
+.blackCell {
+    background: black;
+    color: red;
+}

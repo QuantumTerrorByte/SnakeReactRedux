@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import {useSelector} from "react-redux";
+import styles from './styles/App.module.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export function App() {
+    let board = useSelector(state => state.board.board);
+    console.log(board);
+    return <div className={styles.test}>
+        {board.map(outerElem => <div className={styles.cellRow}>
+            {outerElem.map(innerElem => <div className={styles.cell+" "+styles.blackCell}>{innerElem}</div>)}
+        </div>)}
+    </div>;
 }
-
-export default App;
