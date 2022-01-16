@@ -1,6 +1,5 @@
 import React from "react";
-import {top} from "../core/core";
-import {deathBoxCell, freeCell, pointCell} from "../core/Consts";
+import {bot, deathBoxCell, freeCell, left, pointCell, right, snakeCell, top} from "../core/Consts";
 import {createCleanBoard} from "../core/CreateCleanBoard";
 
 
@@ -16,32 +15,61 @@ isAlive: true
 0 free
 -1 deathBox
 */
-
-
 function createState(cleanBoard = createCleanBoard(), pointPosition, snake) {
-    if (snake.isArray) {
-        snake.for(item => cleanBoard[item.x][item.y] = deathBoxCell);
+    debugger
+    for (const item of snake) {
+        cleanBoard[item.x][item.y] = snakeCell;
     }
+    debugger
     cleanBoard[pointPosition.x][pointPosition.y] = pointCell;
     return cleanBoard;
 }
+function temp(nextCellValue,nextCellCoordinates){
+    let newBoardState;
+    switch (nextCellValue) {
+        case deathBoxCell:
+        // dispatch(death);
+        case pointCell:
+        // grow();
+        case freeCell:
+            console.log("0")
+            // snakeClone.push(nextCellCoordinates);
+            // snakeClone.shift();
+            debugger
+            // newBoardState = createState(createCleanBoard(),
+            //     gameState.pointPosition, snakeClone);
+    }
+    return newBoardState;
+}
 
-export function iteration(gameState) { //todo replace this logic in to dispatcher
+
+export function gameIteration(gameState) { //todo replace this logic in to dispatcher
     let snakeHead = gameState.snake[gameState.snake.length - 1];
+    let snakeClone = gameState.snake;
     let newBoardState;
     switch (gameState.direction) {
         case top:
-            let nextCell = gameState.board[snakeHead.y + 1][snakeHead.x]
-            switch (nextCell) {
-                case deathBoxCell:
-                    dispatch(death);
-                case pointCell:
-                    grow();
-                case freeCell:
-                    gameState.snake.push(nextCell);
-                    gameState.snake.shift();
-                    createState(createCleanBoard(),gameState.pointPosition,ga)
-            }
+            let nextCell = gameState.board[snakeHead.x + 1][snakeHead.y]
+
+        case bot:
+
     }
-    return newBoardState;
+    return {type: "iteration", payload: newBoardState};
+}
+
+export function directionAction(input) {
+    let result = {type: "setDirection"};
+    switch (input){
+        case top:
+            result.payload = top;
+        case bot:
+            result.payload = bot;
+        case right:
+            result.payload = right;
+        case left:
+            result.payload = left;
+        default:
+            throw "wrong input value";
+    }
+    return result;
 }

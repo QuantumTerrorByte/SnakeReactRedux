@@ -1,21 +1,16 @@
 import React from "react";
-import {top} from "../core/core";
 import {deathBoxCell, freeCell} from "../core/Consts";
 import {createCleanBoard} from "../core/CreateCleanBoard";
-
+import {top} from "../core/Consts"
 
 export const initialState = {
     board: createCleanBoard(50),
-    pointPosition: {x: 20, y: 20},
-    headPosition: {x: 30, y: 30},
-    snake: new Array({x: 20, y: 20},{x: 21, y: 20},{x: 22, y: 20}),
+    pointPosition: {y: 25, x: 25},
+    // headPosition: {x: 22, y: 20},
+    snake: new Array({y: 10, x: 10}, {y: 11, x: 10}, {y: 12, x: 10}),
     points: 0,
     direction: top,
     isAlive: true,
     isGameStarted: false,
+    testState: true
 };
-
-function seed() {
-    let board = new Array(52).fill(1).map(() => new Array(52).fill(freeCell));
-    return board;
-}

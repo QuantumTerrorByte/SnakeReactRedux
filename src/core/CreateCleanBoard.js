@@ -11,5 +11,6 @@ export function createCleanBoard(boardSize=50) {
             }
         }
     }
+    return board;
 }
 
