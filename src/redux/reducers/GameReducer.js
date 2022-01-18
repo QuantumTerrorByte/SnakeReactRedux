@@ -10,8 +10,10 @@ export function gameReducer(state = initialState, action) {
     switch (action.type) {
         case "test":
             console.log("!")
+            debugger
             return {...state, testValue: !state.testValue};
-        // return {...state, testState: !state.testState};
+        case "changeBoardSize":
+            return {...state, boardSize: action.payload, board: createCleanBoard(action.payload)}
         case "setDirection":
             return {...state, direction: action.payload}
         case "iteration":

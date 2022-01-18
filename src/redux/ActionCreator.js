@@ -1,20 +1,5 @@
 import React from "react";
-import {bot, deathBoxCell, freeCell, left, pointCell, right, snakeCell, top} from "../core/Consts";
-import {createCleanBoard} from "../core/CreateCleanBoard";
-
-
-/*
-board: seed(),
-points: 0,
-pointPosition: {x: 20, y: 20},
-headPosition: {x: 30, y: 30},
-direction: top,
-isAlive: true
-
-1 point
-0 free
--1 deathBox
-*/
+import {bot, left, right, top} from "../core/Consts";
 
 
 export function gameOverAction() {

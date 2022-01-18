@@ -7,10 +7,8 @@ import thunk from 'redux-thunk';
 import reportWebVitals from "./reportWebVitals";
 import {render} from "react-dom";
 import {App} from "./App";
-import {createGameIterationAction, gameOverAction} from "./redux/ActionCreator";
+import {Test} from "./components/TestComponent";
 import {gameInputsListener} from "./core/InputGameListener";
-import {sleepAsync} from "./core/sleepAsync";
-import {gameAsync} from "./core/gameAsync";
 
 
 export const store = createStore(rootReducer, compose(
@@ -18,22 +16,13 @@ export const store = createStore(rootReducer, compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
-// setInterval(() => {
-//     store.dispatch(createGameIterationAction());
-// }, 500)
-
-
-
-
-// gameAsync(store);
-
 
 window.addEventListener('keyup', gameInputsListener, false);
 
 const app = (
     <Provider store={store}>
         <BrowserRouter>
-            <App store={store}/>
+            <App/>
         </BrowserRouter>
     </Provider>
 );
