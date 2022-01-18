@@ -1,42 +1,29 @@
-import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
 import styles from './styles/App.module.css';
-import {directionAction} from "./redux/ActionCreator";
-import {bot, left, right, top} from "./core/Consts";
+import {gameAsync} from "./core/gameAsync";
+import {Board} from "./components/Board";
 
 
-export function App(props) {
-    let gameData = useSelector(state => state.gameData);
-    let testState = gameData.testState;
-    let dispatcher = useDispatch();
-    window.addEventListener('keydown', (e) => {
-        switch (e.key) {
-            case "w":
-                dispatcher(directionAction(top));
-            case "a":
-                dispatcher(directionAction(left));
-            case "s":
-                dispatcher(directionAction(bot));
-            case "d":
-                dispatcher(directionAction(right));
-        }
-    });
+export function App({store}) {
+    const gameData = store.getState().gameData;
     console.log(gameData);
-    console.log(props);
+    console.log("FROM APP");
     return <div>
         <div>
-            {testState ? "TRUE" : "FALSE"}
-            <button onClick={() => {
-                props.dispatcher({type: "test"})
+            {gameData.testValue ? "TRUE" : "FALSE"}
+            <button onClick={(e) => {
+                store.dispatch({type:"test"});
             }}>TEST
             </button>
         </div>
-        <div className={styles.test}>
-            {gameData.board.map(outerElem => <div className={styles.cellRow}>
-                {outerElem.map(innerElem => <div className={styles.cell + " " + styles.blackCell}>
-                    {innerElem}
-                </div>)}
-            </div>)}
+        <div>
+            {gameData.gameOver ? "TRUE" : "FALSE"}
+            <button onClick={(e) => {
+                console.log("started");
+                gameAsync(store);
+            }}>Game
+            </button>
         </div>
+        <Board board={gameData.board}></Board>
     </div>;
 }
