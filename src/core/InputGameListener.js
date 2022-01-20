@@ -3,7 +3,7 @@ import {BOT, LEFT, RIGHT, TOP} from "./Consts";
 import {startGame, store} from "../index";
 
 export function gameInputsListener(e) {
-    console.log(e.key);
+    // console.log(e.key);
     switch (e.key) {
         case "w":
             store.dispatch(directionAction(TOP));

@@ -1,7 +1,7 @@
 import {DEATH_BOX_CELL, FREE_CELL} from "./Consts";
 
 export function createCleanBoard(boardSize) {
-    let boardSizeWithMargins = boardSize + 2;
+    let boardSizeWithMargins = parseInt(boardSize) + 2;
     let board = new Array(boardSizeWithMargins).fill(1)
         .map(() => new Array(boardSizeWithMargins).fill(FREE_CELL));
     for (let i = 0; i < boardSizeWithMargins; i++) { //todo j,i or i,j ???

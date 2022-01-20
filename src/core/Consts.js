@@ -8,6 +8,6 @@ export const POINT_CELL = "Y";
 export const FREE_CELL = "0";
 export const SNAKE_CELL = "X";
 
-export const SPEED_INPUT = "speedInput";
-export const BOARD_SIZE_INPUT = "boardSizeInput";
+export const CHANGE_SPEED = "speedInput";
+export const CHANGE_BOARD_SIZE = "boardSizeInput";
 

@@ -1,13 +1,24 @@
-:root{
+:root {
     --cellSize: 35px;
 }
-.boardHolder{
-    display: flex;
-    width: 100%;
-    border: solid #e600ff 1px;
-    justify-content: center;
+
+* {
+    margin: 0;
+    padding: 0;
 }
-.board{
+
+
+.boardHolder {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+    /*border: solid #e600ff 1px;*/
+    justify-content: center;
+    z-index: -10;
+}
+
+.board {
     display: flex;
     position: relative;
     /*left: 50%;*/
@@ -26,10 +37,13 @@
 }
 
 .blueCell {
-    /*font-size: 10px;*/
-    color: #e600ff;
-    color: #ff002f;
+    color: blue;
     background: blue;
+}
+
+.whiteCell {
+    color: #d1fdbb;
+    background: #d1fdbb;
 }
 
 .redCell {
@@ -38,6 +52,6 @@
 }
 
 .blackCell {
-    background: black;
-    color: red;
+    background: rgb(0, 0, 0);
+    color: #000000;
 }

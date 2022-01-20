@@ -4,18 +4,26 @@ import {createCleanBoard} from "../core/CreateCleanBoard";
 import {TOP} from "../core/Consts"
 
 export const initialState = {
-    boardSize: 10,
-    board: createCleanBoard(10),
-    pointPosition: {x: 9, y: 9},
-    points: 0,
-    snake: new Array({x: 5, y: 7}, {x: 5, y: 6}),
-    direction: TOP,
+    boardSize: 20,
     gameSpeed: 500,
+    board: createCleanBoard(20),
+    pointPosition: {x: 9, y: 9},
+    snake: new Array({x: 5, y: 7}, {x: 5, y: 6}),
+    points: 0,
+    direction: TOP,
     isAlive: true,
+    showOptions: true,
+    showResult: false,
+
+
+
+
+
+
+
+
     isGameStarted: true,
     gameOver: false,
     testValue: false,
-    speedInputValue: "",
-    boardSizeInputValue: "",
 }
 

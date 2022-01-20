@@ -1,24 +1,39 @@
 .controlPanelHolder {
     display: flex;
+    position: absolute;
     flex-direction: column;
-    border: solid #000000 1px;
-    width: 250px;
+    width: 600px;
     justify-content: center;
     align-items: center;
+    left: 50%;
+    margin: 5% 0 0 -330px;
     padding: 30px;
-    margin-left: 500px;
+    font-size: 40px;
+    background: rgba(237, 168, 255, 0.24);
 }
 
-.speedInput {
-    
+input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
 }
 
-.boardSizeInput {
-
+label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 10px 0 10px;
 }
 
 button {
-    width: 120px;
     font-size: 17px;
-    margin: 5px;
+    width: 120px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
 }

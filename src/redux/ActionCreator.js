@@ -1,5 +1,5 @@
 import React from "react";
-import {BOARD_SIZE_INPUT, BOT, LEFT, RIGHT, SPEED_INPUT, TOP} from "../core/Consts";
+import {BOT, LEFT, RIGHT, CHANGE_SPEED, TOP, CHANGE_BOARD_SIZE} from "../core/Consts";
 
 
 export function gameOverAction() {
@@ -12,7 +12,6 @@ export function createGameIterationAction(gameState) {
 
 export function directionAction(input) {
     debugger
-    console.log(input);
     let result = {type: "setDirection"};
     switch (input) {
         case TOP:
@@ -30,13 +29,12 @@ export function directionAction(input) {
         default:
             throw "wrong input value";
     }
-    console.log(result);
     return result;
 }
 
 export function speedInputAction(value) {
-    return {type: SPEED_INPUT, payload: value}
+    return {type: CHANGE_SPEED, payload: value}
 }
- export function boardSizeInputAction(value){
-     return{type: BOARD_SIZE_INPUT, payload: value}
+ export function changeBoardSizeAction(value){
+     return{type: CHANGE_BOARD_SIZE, payload: value}
  }

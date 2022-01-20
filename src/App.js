@@ -12,6 +12,8 @@ export function App(props) { //todo get state bug
     let dispatch = useDispatch();
     debugger
     return (<div>
+        {gameData.showOptions ? <OptionsPanel props={gameData}/> : null}
+        <Board board={gameData.board}></Board>
         <div>
             {gameData.gameOver ? "TRUE" : "FALSE"}
             <button onClick={(e) => {
@@ -20,8 +22,6 @@ export function App(props) { //todo get state bug
             }}>Game
             </button>
         </div>
-        <OptionsPanel speedValue={gameData.speedInputValue}/>
-        <Board board={gameData.board}></Board>
         <div>
             {gameData.testValue ? "TRUE" : "FALSE"}
             <button onClick={(e) => {

@@ -1,24 +1,38 @@
 import React from "react";
 import {initialState} from "../InitialState";
 import {createCleanBoard} from "../../core/CreateCleanBoard";
-import {BOARD_SIZE_INPUT, DEATH_BOX_CELL, FREE_CELL, POINT_CELL, SNAKE_CELL, SPEED_INPUT} from "../../core/Consts";
+import {
+    DEATH_BOX_CELL,
+    FREE_CELL,
+    POINT_CELL,
+    SNAKE_CELL,
+    CHANGE_SPEED,
+    CHANGE_BOARD_SIZE
+} from "../../core/Consts";
 import {getNextCell} from "../../core/GetNextCell";
 import {getNewPoint} from "../../core/GetNewPoint";
 import {setSnakeOnBoard} from "../../core/SetSnakeOnBoard";
 
 export function gameReducer(state = initialState, action) {
     switch (action.type) {
-        case SPEED_INPUT:
-            return {...state, speedInputValue: action.payload};
-        case BOARD_SIZE_INPUT:
-            return {...state, boardSizeInputValue: action.payload};
+        case CHANGE_SPEED:
+            return {...state, gameSpeed: action.payload};
         case "reset":
-            return initialState;
+            return {
+                ...state,
+                pointPosition: initialState.pointPosition,
+                snake: initialState.snake,
+                direction: initialState.direction,
+                isGameStarted: true,
+                gameOver: false,
+                isAlive: true,
+                showOptions: false,
+            };
         case "test":
             console.log("!")
             debugger
             return {...state, testValue: !state.testValue};
-        case "changeBoardSize":
+        case CHANGE_BOARD_SIZE:
             return {...state, boardSize: action.payload, board: createCleanBoard(action.payload)}
         case "setDirection":
             return {...state, direction: action.payload}
@@ -51,6 +65,8 @@ export function gameReducer(state = initialState, action) {
                 default:
                     throw "next cell value is not valid";
             }
+        case "gameOver":
+            return {...state, showOptions: true}
         default:
             return state;
     }
