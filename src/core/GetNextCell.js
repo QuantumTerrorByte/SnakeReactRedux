@@ -1,4 +1,4 @@
-import {bot, left, right, top} from "./Consts";
+import {BOT, LEFT, RIGHT, TOP} from "./Consts";
 
 export function getNextCell(gameData) {
     const result = {
@@ -8,16 +8,16 @@ export function getNextCell(gameData) {
     const snakeHead = gameData.snake[(gameData.snake.length - 1)];
     let coordinates = null;
     switch (gameData.direction) {
-        case top:
+        case TOP:
             coordinates = {x: snakeHead.x, y: snakeHead.y - 1};
             break;
-        case bot:
+        case BOT:
             coordinates = {x: snakeHead.x, y: snakeHead.y + 1};
             break;
-        case left:
+        case LEFT:
             coordinates = {x: snakeHead.x - 1, y: snakeHead.y};
             break;
-        case right:
+        case RIGHT:
             coordinates = {x: snakeHead.x + 1, y: snakeHead.y};
             break;
     }

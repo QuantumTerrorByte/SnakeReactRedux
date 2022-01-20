@@ -1,5 +1,5 @@
 import React from "react";
-import {bot, left, right, top} from "../core/Consts";
+import {BOARD_SIZE_INPUT, BOT, LEFT, RIGHT, SPEED_INPUT, TOP} from "../core/Consts";
 
 
 export function gameOverAction() {
@@ -15,17 +15,17 @@ export function directionAction(input) {
     console.log(input);
     let result = {type: "setDirection"};
     switch (input) {
-        case top:
-            result.payload = top;
+        case TOP:
+            result.payload = TOP;
             break;
-        case bot:
-            result.payload = bot;
+        case BOT:
+            result.payload = BOT;
             break;
-        case right:
-            result.payload = right;
+        case RIGHT:
+            result.payload = RIGHT;
             break;
-        case left:
-            result.payload = left;
+        case LEFT:
+            result.payload = LEFT;
             break;
         default:
             throw "wrong input value";
@@ -33,3 +33,10 @@ export function directionAction(input) {
     console.log(result);
     return result;
 }
+
+export function speedInputAction(value) {
+    return {type: SPEED_INPUT, payload: value}
+}
+ export function boardSizeInputAction(value){
+     return{type: BOARD_SIZE_INPUT, payload: value}
+ }

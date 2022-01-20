@@ -9,6 +9,7 @@ import {render} from "react-dom";
 import {App} from "./App";
 import {Test} from "./components/TestComponent";
 import {gameInputsListener} from "./core/InputGameListener";
+import {gameAsync} from "./core/gameAsync";
 
 
 export const store = createStore(rootReducer, compose(
@@ -18,6 +19,9 @@ export const store = createStore(rootReducer, compose(
 
 
 window.addEventListener('keyup', gameInputsListener, false);
+
+export const startGame = () => gameAsync(store);
+
 
 const app = (
     <Provider store={store}>

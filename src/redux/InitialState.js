@@ -1,7 +1,7 @@
 import React from "react";
-import {deathBoxCell, freeCell} from "../core/Consts";
+import {DEATH_BOX_CELL, FREE_CELL} from "../core/Consts";
 import {createCleanBoard} from "../core/CreateCleanBoard";
-import {top} from "../core/Consts"
+import {TOP} from "../core/Consts"
 
 export const initialState = {
     boardSize: 10,
@@ -9,10 +9,13 @@ export const initialState = {
     pointPosition: {x: 9, y: 9},
     points: 0,
     snake: new Array({x: 5, y: 7}, {x: 5, y: 6}),
-    direction: top,
+    direction: TOP,
+    gameSpeed: 500,
     isAlive: true,
     isGameStarted: true,
     gameOver: false,
-    testValue: false
+    testValue: false,
+    speedInputValue: "",
+    boardSizeInputValue: "",
 }
 
