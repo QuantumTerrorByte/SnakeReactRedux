@@ -4,8 +4,10 @@ import {Board} from "./components/Board";
 import {gameAsync} from "./core/gameAsync";
 import {OptionsPanel} from "./components/OptionsPanel";
 import {startGame} from "./index";
+import {ResultPanel} from "./components/ResultPanel";
 
 export function App(props) { //todo get state bug
+    // let temp = this.state;
     debugger
     let store = useStore();
     let gameData = useSelector(s => s.gameData);
@@ -13,12 +15,13 @@ export function App(props) { //todo get state bug
     debugger
     return (<div>
         {gameData.showOptions ? <OptionsPanel props={gameData}/> : null}
+        {gameData.showResult ? <ResultPanel props={gameData}/> : null}
+
         <Board board={gameData.board}></Board>
         <div>
             {gameData.gameOver ? "TRUE" : "FALSE"}
             <button onClick={(e) => {
                 gameAsync(store);
-                // startGame();
             }}>Game
             </button>
         </div>

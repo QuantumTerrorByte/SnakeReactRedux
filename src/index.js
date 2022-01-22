@@ -12,14 +12,13 @@ import {gameInputsListener} from "./core/InputGameListener";
 import {gameAsync} from "./core/gameAsync";
 
 
-export const store = createStore(rootReducer, compose(
+const store = createStore(rootReducer, compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
 
-window.addEventListener('keyup', gameInputsListener, false);
-
+window.addEventListener('keydown', gameInputsListener(store), false);
 export const startGame = () => gameAsync(store);
 
 

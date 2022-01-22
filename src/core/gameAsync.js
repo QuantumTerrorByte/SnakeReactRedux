@@ -1,8 +1,8 @@
-import {createGameIterationAction, gameOverAction} from "../redux/ActionCreator";
+import {createGameIterationAction, gameOverAction, resetAction} from "../redux/ActionCreator";
 import {sleepAsync} from "./sleepAsync";
 
 export async function gameAsync(store) {
-    store.dispatch({type: "reset"});
+    store.dispatch(resetAction());
     let gameData = store.getState().gameData;
     console.log(gameData);
     debugger

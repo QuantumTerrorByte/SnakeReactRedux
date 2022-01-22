@@ -9,7 +9,8 @@
     margin: 5% 0 0 -330px;
     padding: 30px;
     font-size: 40px;
-    background: rgba(237, 168, 255, 0.24);
+    /*background: rgba(237, 168, 255, 0.24);*/
+    background: rgba(164, 164, 164, 0.49);
 }
 
 input {

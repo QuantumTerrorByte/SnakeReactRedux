@@ -1,13 +1,32 @@
 import React from "react";
-import {BOT, LEFT, RIGHT, CHANGE_SPEED, TOP, CHANGE_BOARD_SIZE} from "../core/Consts";
+import {
+    BOT,
+    LEFT,
+    RIGHT,
+    CHANGE_SPEED,
+    TOP,
+    CHANGE_BOARD_SIZE,
+    GAME_OVER,
+    ITERATION,
+    RESET,
+    SHOW_OPTIONS
+} from "../core/Consts";
 
 
 export function gameOverAction() {
-    return {type: "gameOver"};
+    return {type: GAME_OVER};
+}
+
+export function showOptionsAction() {
+    return {type: SHOW_OPTIONS};
+}
+
+export function resetAction() {
+    return {type: RESET};
 }
 
 export function createGameIterationAction(gameState) {
-    return {type: "iteration"};
+    return {type: ITERATION};
 }
 
 export function directionAction(input) {
@@ -35,6 +54,7 @@ export function directionAction(input) {
 export function speedInputAction(value) {
     return {type: CHANGE_SPEED, payload: value}
 }
- export function changeBoardSizeAction(value){
-     return{type: CHANGE_BOARD_SIZE, payload: value}
- }
+
+export function changeBoardSizeAction(value) {
+    return {type: CHANGE_BOARD_SIZE, payload: value}
+}

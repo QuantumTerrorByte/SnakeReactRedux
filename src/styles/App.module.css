@@ -24,7 +24,7 @@
     /*left: 50%;*/
     /*margin-left: -400px;*/
     /*width: 800px;*/
-    border: solid 2px blue;
+    border: solid blue 1px;
 }
 
 .cellRow {
@@ -37,21 +37,21 @@
 }
 
 .blueCell {
-    color: blue;
+    color: rgba(255, 255, 255, 0);
     background: blue;
 }
 
 .whiteCell {
-    color: #d1fdbb;
-    background: #d1fdbb;
+    color: rgba(255, 255, 255, 0);
+    background: #8ee073;
 }
 
 .redCell {
-    color: red;
+    color: rgba(255, 255, 255, 0);
     background: red;
 }
 
 .blackCell {
-    background: rgb(0, 0, 0);
-    color: #000000;
+    color: rgba(255, 255, 255, 0);
+    background: #000000;
 }
