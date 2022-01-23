@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/ControlPanel.module.css"
 import {useDispatch} from "react-redux";
-import {changeBoardSizeAction, speedInputAction} from "../redux/ActionCreator";
+import {accelerationAction, changeBoardSizeAction, speedInputAction} from "../redux/ActionCreator";
 import {startGame} from "../index";
 
 export function OptionsPanel({props}) {
@@ -26,8 +26,12 @@ export function OptionsPanel({props}) {
                    value={props.gameSpeed}/>
         </label>
         <label> is walls deadly
-            <input type="checkbox"/>
+            <input type="checkbox"
+                   onChange={e => dispatch(accelerationAction(e.target.value))}/>
         </label>
-        <button onClick={(e)=>{startGame()}}>start</button>
+        <button onClick={(e) => {
+            startGame()
+        }}>start
+        </button>
     </div>
 }

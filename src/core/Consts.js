@@ -16,3 +16,4 @@ export const RESET = "reset";
 export const SET_DIRECTION = "setDirection";
 export const GAME_OVER = "gameOver";
 export const SHOW_OPTIONS = "backToOptions";
+export const ACCELERATION_ACTIVATION = "acceleration";

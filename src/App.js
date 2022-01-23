@@ -18,32 +18,5 @@ export function App(props) { //todo get state bug
         {gameData.showResult ? <ResultPanel props={gameData}/> : null}
 
         <Board board={gameData.board}></Board>
-        <div>
-            {gameData.gameOver ? "TRUE" : "FALSE"}
-            <button onClick={(e) => {
-                gameAsync(store);
-            }}>Game
-            </button>
-        </div>
-        <div>
-            {gameData.testValue ? "TRUE" : "FALSE"}
-            <button onClick={(e) => {
-                dispatch({type: "test"});
-            }}>TEST
-            </button>
-        </div>
-        <div>Board size: {gameData.boardSize}</div>
-        <div>
-            <button onClick={(e) => {
-                dispatch({type: "changeBoardSize", payload: 10});
-            }}>Size 10
-            </button>
-        </div>
-        <div>
-            <button onClick={(e) => {
-                dispatch({type: "changeBoardSize", payload: 20});
-            }}>Size 20
-            </button>
-        </div>
     </div>)
 }

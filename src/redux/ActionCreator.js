@@ -9,13 +9,18 @@ import {
     GAME_OVER,
     ITERATION,
     RESET,
-    SHOW_OPTIONS
+    SHOW_OPTIONS, ACCELERATION_ACTIVATION
 } from "../core/Consts";
 
 
 export function gameOverAction() {
     return {type: GAME_OVER};
 }
+
+export function accelerationAction(value) {
+    return {type: ACCELERATION_ACTIVATION, payload: value};
+}
+
 
 export function showOptionsAction() {
     return {type: SHOW_OPTIONS};

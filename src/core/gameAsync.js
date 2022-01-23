@@ -4,7 +4,6 @@ import {sleepAsync} from "./sleepAsync";
 export async function gameAsync(store) {
     store.dispatch(resetAction());
     let gameData = store.getState().gameData;
-    console.log(gameData);
     debugger
     while (gameData.isAlive) {
         store.dispatch(createGameIterationAction());

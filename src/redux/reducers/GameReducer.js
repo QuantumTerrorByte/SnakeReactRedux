@@ -7,7 +7,7 @@ import {
     POINT_CELL,
     SNAKE_CELL,
     CHANGE_SPEED,
-    CHANGE_BOARD_SIZE, GAME_OVER, ITERATION, SET_DIRECTION, RESET, SHOW_OPTIONS
+    CHANGE_BOARD_SIZE, GAME_OVER, ITERATION, SET_DIRECTION, RESET, SHOW_OPTIONS, ACCELERATION_ACTIVATION
 } from "../../core/Consts";
 import {getNextCell} from "../../core/GetNextCell";
 import {getNewPoint} from "../../core/GetNewPoint";
@@ -17,12 +17,15 @@ export function gameReducer(state = initialState, action) {
     switch (action.type) {
         case CHANGE_SPEED:
             return {...state, gameSpeed: action.payload};
+        case ACCELERATION_ACTIVATION:
+            return {...state,isAccelerationOn: action.payload}
         case RESET:
             return {
                 ...state,
                 pointPosition: initialState.pointPosition,
                 snake: initialState.snake,
                 direction: initialState.direction,
+                points: 0,
                 isGameStarted: true,
                 gameOver: false,
                 isAlive: true,
@@ -55,7 +58,15 @@ export function gameReducer(state = initialState, action) {
                         createCleanBoard(state.boardSize), true);
                     const newPoint = getNewPoint(newBoardState, state.boardSize);
                     newBoardState[newPoint.x][newPoint.y] = POINT_CELL;
-                    return {...state, board: newBoardState, snake: snakeCopy, pointPosition: newPoint, isDirectionUsedSyncFlag: true};
+                    return {
+                        ...state,
+                        board: newBoardState,
+                        snake: snakeCopy,
+                        pointPosition: newPoint,
+                        isDirectionUsedSyncFlag: true,
+                        points: state.points + 1,
+                        gameSpeed: state.isAccelerationOn ? state.gameSpeed - state.acceleration : state.gameSpeed
+                    };
                 case DEATH_BOX_CELL:
                 case SNAKE_CELL:
                     return {...state, gameOver: true, isAlive: false, isDirectionUsedSyncFlag: true};
@@ -63,7 +74,10 @@ export function gameReducer(state = initialState, action) {
                     throw "next cell value is not valid";
             }
         case GAME_OVER:
-            return {...state, showResult: true};
+            if (+(localStorage.getItem("bestResult")) < state.points) {
+                localStorage.setItem("bestResult", state.points);
+            }
+            return {...state, showResult: true, gameSpeed: 110};
         case SHOW_OPTIONS:
             return {...state, showResult: false, showOptions: true};
         case "test":
@@ -73,7 +87,6 @@ export function gameReducer(state = initialState, action) {
         default:
             return state;
     }
-    console.log()
 }
 
 

@@ -12,23 +12,16 @@
 // } else {
 //     alert("BARADA");
 // }
-import {logDOM} from "@testing-library/react";
-
-try {
-    let test = prompt("test");
-    test = +test;
-    console.log(typeof test);
-    console.log(test);
-    let test2 = +prompt("test");
-    console.log(typeof test2);
-    console.log(test2);
-    let test3 = prompt("test");
-    console.log(parseInt(test3));
-    console.log(test3);
-    throw Error;
-} catch (Error) {
-    alert(Error)
-}
 
 let arr = [1, 2, 3, 4];
 alert(arr.age);
+const testObj = {name: "oleg", age: 15};
+localStorage.setItem("first", "25");
+localStorage.setItem("second", "30");
+localStorage.setItem("third", 30);
+localStorage.setItem("obj", JSON.stringify(testObj));
+console.log(localStorage.getItem("first"));
+console.log(localStorage.getItem("second"));
+console.log(localStorage.getItem("obj"));
+console.log(localStorage.getItem("third"));
+console.log(JSON.parse(localStorage.getItem("obj")));
